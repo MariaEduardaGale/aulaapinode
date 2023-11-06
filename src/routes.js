@@ -83,6 +83,12 @@ router.patch('/pedido/:id', pedidoController.atualizarPedido);
 
 router.delete('/pedido/:id', pedidoController.deletarPedido);
 
+//Rotas para item pedido 
 
+const itemPedidoController = require('./itemPedidoController.js'); 
+
+router.get('/itempedido', itemPedidoController.listarItem_pedido); 
+
+router.get('/itempedido', itemPedidoController.buscarItem_pedido); 
 
 module.exports = router;
