@@ -118,3 +118,21 @@ exports.deletarProduto = (req, res) => {
     });
 }
 
+//Buscar produtos por nome 
+exports.buscarProduto = (req, res) => {
+    const { nome_produto } = req.params; // req.params acessa os parametros
+    
+    //LIKE com o operador % usado para buscar produtos cujo nome começa com o prefixo especificado na URL. 
+    db.query('SELECT * FROM produto WHERE nome_produto LIKE ?', [`${nome_produto}%`], (err, result) => {
+        if (err) {
+            console.error('Erro ao buscar produto:', err);
+            res.status(500).json({ error:'Erro interno de servidor'}); 
+            return; 
+        }
+        if(result.length === 0) {
+            res.status(404).json({ error: 'Produto não encontrado' }); 
+            return; 
+        }
+        res.json(result); //Retorna o primeiro produto encontrado (deve ser único)
+    });
+}

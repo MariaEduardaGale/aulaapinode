@@ -30,13 +30,44 @@ router.patch('/clientes/:cpf', clienteController.atualizarCliente);
 //DELETE: Informa por meio do URL o objeto a ser deletado 
 router.delete('/clientes/:cpf', clienteController.deletarCliente); 
 
-const produtoController = require('./produtoController'); 
 //Rotas para produtos 
+
+const produtoController = require('./produtoController'); 
+
 router.get('/produtos',produtoController.listarProdutos); 
 
 router.get('/produtos/:id', produtoController.buscarProduto); 
 
+router.get('/produtos/:id', produtoController.deletarProduto); 
 
+router.get('/produtos/nome/:nome_produto', produtoController.buscarProduto); 
+
+//Rotas para regiao 
+
+const regiaoController = require('./regiaoController.js');
+
+router.get('/regiao', regiaoController.listarRegiao);
+
+router.get('/regiao/:id', regiaoController.buscarRegiao);
+
+router.post('/regiao', regiaoController.adicionarRegiao);
+
+router.patch('/regiao/:id', regiaoController.atualizarRegiao);
+
+router.delete('/regiao/:id', regiaoController.deletarRegiao);
+
+//Rotas para entregador 
+const entregadorController = require('./entregadorController.js');
+
+router.get('/entregador', entregadorController.listarEntregador);
+
+router.get('/entregador/:id', entregadorController.buscarEntregador);
+
+router.post('/entregador', entregadorController.adicionarEntregador);
+
+router.patch('/entregador/:id', entregadorController.atualizarEntregador);
+
+router.delete('/entregador/:id', entregadorController.deletarEntregador);
 
 
 
