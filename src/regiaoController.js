@@ -20,7 +20,7 @@ exports.listarRegiao = (req, res) => {
 
 exports.buscarRegiao = (req, res) => {
     const { id_regiao } = req.params;
-    db.query('SELECT * FROM regiao WHERE id_regiao = ?', id_regiao, (err, result) => {
+    db.query('SELECT * FROM regiao WHERE nome_regiao = ?', id_regiao, (err, result) => {
         if (err) {
             console.error('Erro ao buscar região', err);
             res.status(500).json({ error: 'Erro interno do servidor' });

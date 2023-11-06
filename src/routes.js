@@ -69,6 +69,20 @@ router.patch('/entregador/:id', entregadorController.atualizarEntregador);
 
 router.delete('/entregador/:id', entregadorController.deletarEntregador);
 
+//Rotas para pedido 
+
+const pedidoController = require('./pedidoController.js');
+
+router.get('/pedido', pedidoController.listarPedido);
+
+router.get('/pedido/:id', pedidoController.buscarPedido);
+
+router.post('/pedido', pedidoController.adicionarPedido);
+
+router.patch('/pedido/:id', pedidoController.atualizarPedido);
+
+router.delete('/pedido/:id', pedidoController.deletarPedido);
+
 
 
 module.exports = router;

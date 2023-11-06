@@ -3,7 +3,7 @@ const Joi = require('joi');
 
 const entregadorSchema = Joi.object({
     id: Joi.string().required(),
-    cnh: Joi.string().length(9).required(),
+    cnh: Joi.string().length(10).required(),
     nome_entregador: Joi.string().required(),
     telefone: Joi.string().required(),
     id_regiao: Joi.string().required(),
@@ -75,7 +75,7 @@ exports.atualizarEntregador = (req, res) => {
 
 exports.deletarEntregador = (req, res) => {
     const { id } = req.params;
-    db.query('DELETE FROM entregador WHERE cpf = ?', id, (err, result) => {
+    db.query('DELETE FROM entregador WHERE cnh = ?', id, (err, result) => {
         if (err) {
             console.error('Erro ao deletar entregador:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
