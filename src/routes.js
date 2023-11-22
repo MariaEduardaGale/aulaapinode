@@ -16,12 +16,14 @@ const clienteController = require('./clienteController');
 //Chamando o arquivo que controla o clienre
 
 //Rotas para clientes
+router.use('/clientes', loginController.autenticarToken);
+
 router.get('/clientes', clienteController.listarClientes); 
 
-router.get('/clientes/:cpf', clienteController.buscarCliente); 
+router.get('/clientes/:cpf',  clienteController.buscarCliente); 
 
 //POST: Aceita criar algum objeto do servidor
-router.post('/clientes',clienteController.adicionarCliente); 
+router.post('/clientes', clienteController.adicionarCliente); 
 
 //PUT: Aceita susbtituir algum objeto do servidor 
 //PATH: Aceita alterar algum objeto do servidor
@@ -91,4 +93,13 @@ router.get('/itempedido', itemPedidoController.listarItem_pedido);
 
 router.get('/itempedido', itemPedidoController.buscarItem_pedido); 
 
+
+//Rota para o login 
+const loginController = require('./loginController.js');
+
+router.post('/login', loginController.loginCliente);
+
+
+
 module.exports = router;
+
