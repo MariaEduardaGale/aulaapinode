@@ -12,15 +12,19 @@ router.get('/', (req, res) => {
 //Aqui definimos a nossa rota para o arquivo html usando o Path para sempre retornar dinamicamente o vem antes da "/pages/home.html"
 // Tudo que se encontra depois da barra "/" serão nossas rotas.
 
+const loginController = require('./loginController.js');
+
+router.post('/login', loginController.loginCliente);
+
 const clienteController = require('./clienteController');
 //Chamando o arquivo que controla o clienre
 
 //Rotas para clientes
-router.use('/clientes', loginController.autenticarToken);
+// router.use('/clientes', loginController.autenticarToken);
 
 router.get('/clientes', clienteController.listarClientes); 
 
-router.get('/clientes/:cpf',  clienteController.buscarCliente); 
+router.get('/clientes/:cpf',  clienteController.buscarClientes); 
 
 //POST: Aceita criar algum objeto do servidor
 router.post('/clientes', clienteController.adicionarCliente); 
@@ -40,9 +44,9 @@ router.get('/produtos',produtoController.listarProdutos);
 
 router.get('/produtos/:id', produtoController.buscarProduto); 
 
-router.get('/produtos/:id', produtoController.deletarProduto); 
-
 router.get('/produtos/nome/:nome_produto', produtoController.buscarProduto); 
+
+router.delete('/produtos/:id', produtoController.deletarProduto); 
 
 //Rotas para regiao 
 
@@ -95,9 +99,7 @@ router.get('/itempedido', itemPedidoController.buscarItem_pedido);
 
 
 //Rota para o login 
-const loginController = require('./loginController.js');
 
-router.post('/login', loginController.loginCliente);
 
 
 

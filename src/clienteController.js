@@ -21,7 +21,7 @@ const clienteSchema = Joi.object({
 exports.listarClientes = (req, res) => {
     db.query('SELECT * FROM cliente', (err, result) => {
         if (err) {
-            console.error('Error ao buscar clientes:', err);
+            console.error('Erro ao buscar clientes:', err);
             res.status(500).json({ error: 'Erro interno do servidor' });
             return;
         }

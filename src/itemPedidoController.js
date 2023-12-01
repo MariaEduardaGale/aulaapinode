@@ -25,7 +25,7 @@ exports.buscarItem_pedido = (req, res) => {
     db.query('SELECT * FROM item_pedido WHERE id = ?', id, (err, result) => {
         if (err) {
             console.error('Erro ao buscar item pedido:', err);
-            res.status(500).jsaon({ error: 'Erro interno do servidor' });
+            res.status(500).json({ error: 'Erro interno do servidor' });
             return;
         }
         if (result.length === 0) {

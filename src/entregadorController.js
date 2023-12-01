@@ -25,7 +25,7 @@ exports.buscarEntregador = (req, res) => {
     db.query('SELECT * FROM entregador WHERE id = ?', id, (err, result) => {
         if (err) {
             console.error('Erro ao buscar entregador:', err);
-            res.status(500).jsaon({ error: 'Erro interno do servidor' });
+            res.status(500).json({ error: 'Erro interno do servidor' });
             return;
         }
         if (result.length === 0) {
