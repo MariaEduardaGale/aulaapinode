@@ -24,3 +24,17 @@ test('verifica se -3 é negativo', () => {
 test('verifica se 0 é zero', () => {
     expect(teste.verificaNumero(0)).toBe('zero');
 });
+
+//testando string
+test('verifica se "hello" é uma string', () => {
+    expect(teste.ehString('hello')).toBe(true);
+});
+
+test('verifica se 42 não é uma string', () => {
+    expect(teste.ehString(42)).toBe(false);
+});
+
+//testando objetos/ vetores/ arrays 
+test('retorna lista de números pares até 6', () => {
+    expect(teste.numerosPares(6)).toEqual([2, 4, 6]);
+});
