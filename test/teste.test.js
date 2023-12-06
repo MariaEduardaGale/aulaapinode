@@ -38,3 +38,52 @@ test('verifica se 42 não é uma string', () => {
 test('retorna lista de números pares até 6', () => {
     expect(teste.numerosPares(6)).toEqual([2, 4, 6]);
 });
+
+
+//toBeTruthy = combina com qualquer coisa que uma instrução if trata como verdadeiro 
+test('verifica se a função retorna true ao validar string com pelo menos 3 caracteres', () => {
+    expect(teste.validarString('abc')).toBeTruthy();
+}); 
+
+
+//toBeFalsy = combina com qualquer coisa que uma instrução if trata como falso 
+test('verifica se a função retorna false ao validar número maior ou igual a 10', () => {
+    expect(teste.validarNumero(15)).toBeFalsy();
+}); 
+
+//toBeUndefined = verifica se é undefined (algo não contém um valor, ou chave ou propiedade)
+test('verifica se a função retorna undefinded ao obter propriedade inexistente', () => {
+    const objeto = {nome: 'Sandro', idade: 24 };
+    expect(teste.obterPropriedade(objeto, 'email')).toBeUndefined();
+}); 
+
+//toBeDefined = ao contrario de undefined
+test('verifica se a função retorna um objeto definido ao criar usuário válido', () => {
+    expect(teste.criarUsuario('Sandro', 29)).toBeDefined();
+}); 
+
+//toBeNull = corresponde a apenas nulo 
+test('verifica se a função retorna null ao pesquisar produto inexistente', function () {
+
+    expect(teste.pesquisarProduto('Smartwatch')).toBeNull();
+}); 
+
+//toBeGreaterThan = compara se o valor e maior que o esperado
+test('verifica se a função retorna um número maior ao dobrar', () => { 
+    expect(teste.dobrarNumero(5)).toBeGreaterThan(5);
+}); 
+
+//toBeLessThan = compara se o valor é menor que o esperado 
+test('verifica se a função retorna um número menor que o dobro', () => {
+    expect(teste.dobrarNumero(5)).toBeLessThan(11)
+}); 
+
+//toBeGreaterThanOrEqual = verifica se o valor é maior ou igual ao original
+test('verifica se a função retorna um salário maior ou igual após o aumento', () => {
+    expect(teste.aumentarSalario(1000, 10)).toBeGreaterThanOrEqual(1100);
+}); 
+
+//toBeGreaterThanOrEqual = verifica se o valor é menor ou igual ao original
+test('verifica se a função retorna um salário menor ou igual após o aumento', () => {
+    expect(teste.aumentarSalario(1000, 10)).toBeGreaterThanOrEqual(1100);
+}); 
