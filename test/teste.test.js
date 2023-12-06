@@ -83,7 +83,7 @@ test('verifica se a função retorna um salário maior ou igual após o aumento'
     expect(teste.aumentarSalario(1000, 10)).toBeGreaterThanOrEqual(1100);
 }); 
 
-//toBeGreaterThanOrEqual = verifica se o valor é menor ou igual ao original
+//toBeLessThanOrEqual = verifica se o valor é menor ou igual ao original
 test('verifica se a função retorna um salário menor ou igual após o aumento', () => {
-    expect(teste.aumentarSalario(1000, 10)).toBeGreaterThanOrEqual(1100);
+    expect(teste.aumentarSalario(1000, 10)).toBeLessThanOrEqual(1100);
 }); 

@@ -81,7 +81,7 @@ exports.dobrarNumero = (numero) => {
 }
 
 //toBeGreaterThanOrEqual = verifica se o valor é maior ou igual ao original
-//toBeGreaterThanOrEqual = verifica se o valor é menor ou igual ao original
+//toBeLessThanOrEqual = verifica se o valor é menor ou igual ao original
 
 exports.aumentarSalario = (salario, aumentoPorcentagem) => {
     const aumento = salario * (aumentoPorcentagem / 100);
