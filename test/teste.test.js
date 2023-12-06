@@ -87,3 +87,8 @@ test('verifica se a função retorna um salário maior ou igual após o aumento'
 test('verifica se a função retorna um salário menor ou igual após o aumento', () => {
     expect(teste.aumentarSalario(1000, 10)).toBeLessThanOrEqual(1100);
 }); 
+
+//
+test('verifica se a função retorna um endereço de e-mail formatado corretamente', () => {
+    expect(teste.formatarEmail('sandro', 'senac.br')).toMatch('sandro@senac.br')
+}); 

@@ -87,3 +87,8 @@ exports.aumentarSalario = (salario, aumentoPorcentagem) => {
     const aumento = salario * (aumentoPorcentagem / 100);
     return salario + aumento;
 }
+
+//toMatch =verifica strings
+exports.formatarEmail = (usuario, dominio) => {
+    return `${usuario}@${dominio}`;
+}
